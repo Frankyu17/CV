@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frank Yu – CV</title>
+  <style>
+    :root {
+      --primary: #4A90E2;
+      --secondary: #F5A623;
+      --bg-light: #f0f4f8;
+      --text-dark: #333333;
+      --heading: #222222;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      color: var(--text-dark);
+      background-color: var(--bg-light);
+    }
+    /* Hero Section */
+    header#hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    header#hero img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      object-fit: cover;
+    }
+    header#hero h1 {
+      font-size: 2.5rem;
+      margin: 1rem 0;
+    }
+    .hero-links a {
+      margin: 0 0.5rem;
+      color: white;
+      background-color: var(--secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+    .hero-links a:hover {
+      background-color: #d18b1f;
+    }
+    /* Navbar */
+    nav#navbar {
+      position: sticky;
+      top: 0;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+    nav#navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+    }
+    nav#navbar li {
+      margin: 0 1rem;
+    }
+    nav#navbar a {
+      display: block;
+      padding: 1rem;
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    nav#navbar a:hover {
+      color: var(--primary);
+    }
+    /* Sections */
+    section {
+      padding: 4rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    section:nth-of-type(even) {
+      background: #fff;
+    }
+    section:nth-of-type(odd) {
+      background: var(--bg-light);
+    }
+    section h2 {
+      color: var(--heading);
+      border-bottom: 3px solid var(--secondary);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header id="hero">
+    <img src="img/profile.jpg" alt="Frank Yu">
+    <h1>Frank Yu</h1>
+    <div class="hero-links">
+      <a href="https://github.com/Frankyu17" target="_blank">GitHub</a>
+      <a href="Frank_Yu_CV.pdf" download>Download CV</a>
+    </div>
+  </header>
+
+  <nav id="navbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>I am a second-year Computer Science student passionate about building impactful software and learning new technologies.</p>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <article>
+      <h3>UCD</h3>
+      <time datetime="2023-01">2023 – 2027 Present</time>
+      <p>Pursuing a BSc in Computer Science. Relevant coursework: Data Structures, Algorithms, Databases.</p>
+    </article>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <article>
+      <h3>Project Title</h3>
+    </article>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <article>
+      <h3>Internship / Role Title</h3>
+    </article>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul>
+      <li>Java</li>
+      <li>Python</li>
+      <li>JavaScript / HTML / CSS</li>
+      <li>Git &amp; GitHub</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: Frankyu21@gmail.com</p>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/frank-yu-b1633932b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app " target="_blank">LinkedIn</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>© 2025 Frank Yu. Built with ❤️.</p>
+  </footer>
+</body>
+</html>
