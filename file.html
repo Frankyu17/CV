@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frank Yu – CV</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #4A90E2;
@@ -11,11 +13,13 @@
       --bg-light: #f0f4f8;
       --text-dark: #333333;
       --heading: #222222;
+      --content-width: 1000px;
+      --nav-width: 100%;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: 'Segoe UI', sans-serif;
-      line-height: 1.6;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.8;
       color: var(--text-dark);
       background-color: var(--bg-light);
       scroll-behavior: smooth;
@@ -23,7 +27,7 @@
     
     /* Hero Section */
     header#hero {
-      height: 100vh;
+      height: auto;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -31,76 +35,123 @@
       background-color: var(--primary);
       color: white;
       text-align: center;
-      padding: 2rem;
-      position: relative;
+      padding: 3rem 2rem;
     }
     header#hero img {
-      width: 150px;
-      height: 150px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      border: 4px solid #fff;
+      border: 5px solid #fff;
       object-fit: cover;
+      margin-bottom: 1.5rem;
     }
     header#hero h1 {
-      font-size: 2.5rem;
-      margin: 1rem 0;
+      font-size: 3.2rem;
+      margin: 1.5rem 0;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
     .hero-links {
-      margin-bottom: 2rem;
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
     }
     .hero-links a {
-      margin: 0 0.5rem;
       color: white;
       background-color: var(--secondary);
-      padding: 0.5rem 1rem;
-      border-radius: 0.25rem;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
       text-decoration: none;
-      transition: background-color 0.2s ease;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 4px 0 #d18b1f, 0 5px 15px rgba(0,0,0,0.2);
+      transform: translateY(0);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .hero-links a i {
+      margin-right: 10px;
+      font-size: 1.2em;
     }
     .hero-links a:hover {
-      background-color: #d18b1f;
+      background-color: #e69a22;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 0 #d18b1f, 0 8px 20px rgba(0,0,0,0.2);
     }
-    /* Navbar - part of hero section*/ 
+    .hero-links a:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 0 #d18b1f, 0 3px 8px rgba(0,0,0,0.2);
+    }
+    /* Navigation - at top after hero */
     nav#navbar {
       width: 100%;
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      z-index: 100;
+           background: rgba(255, 255, 255, 0.98);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      padding: 0.8rem 0;
+      display: flex;
+      justify-content: center;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+    nav#navbar .nav-container {
+      max-width: var(--content-width);
+      width: 100%;
+      padding: 0 2rem;
     }
     nav#navbar ul {
       list-style: none;
       display: flex;
-      justify-content: center;
+      flex-wrap: wrap;
+      justify-content: space-between;
       padding: 0;
+      margin: 0;
+      gap: 1rem;
     }
     nav#navbar li {
-      margin: 0 1rem;
+      transition: transform 0.3s ease;
+      flex-grow: 1;
+      text-align: center;
+      min-width: 120px;
     }
     nav#navbar a {
-      display: block;
-      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem 1rem;
       color: var(--text-dark);
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 600;
 
-      transition: all 0.3s ease;
       position: relative;
+      height: 100%;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
     }
-    nav#navbar a:hover {
-      color: var(--primary);
-    } 
+    nav#navbar a i {
+      margin-right: 10px;
+      font-size: 1.2em;
+      width: 20px;
+      text-align: center;
+    }
+    nav#navbar li:hover {
+      transform: translateY(-5px);
+    }
     nav#navbar a::after {
       content: '';
       position: absolute;
       width: 0;
       height: 3px;
-      bottom: 0;
-      left: 0;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
       background-color: var(--primary);
       transition: width 0.3s ease;
+      max-width: 80px;
     }
     nav#navbar a:hover::after {
       width: 100%;
@@ -111,12 +162,16 @@
     nav#navbar a.active::after {
       width: 100%;
     }
-    /* Sections */
+    /* Sections - More spacious layout */
     section {
-      padding: 4rem 2rem;
-      max-width: 800px;
+      padding: 6rem 3rem;
+      width: 100%;
       margin: 0 auto;
       transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    section .section-content {
+      max-width: var(--content-width);
+      margin: 0 auto;
     }
     section.hidden {
       opacity: 0;
@@ -134,15 +189,222 @@
     }
     section h2 {
       color: var(--heading);
-      border-bottom: 3px solid var(--secondary);
-      padding-bottom: 0.5rem;
+       margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 1rem;
+    }
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 70px;
+      height: 4px;
+      background-color: var(--secondary);
+    }
+    section h2 i {
+      margin-right: 15px;
+      color: var(--primary);
+      font-size: 2rem;
+    }
+    
+    /* Content styling */
+    article {
+      margin-bottom: 3rem;
+      padding: 2rem;
+      background: rgba(255,255,255,0.7);
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+    article h3 {
+      font-size: 1.8rem;
       margin-bottom: 1rem;
+      color: var(--primary);
+    }
+    article time {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 1rem;
+         color: var(--secondary);
+    }
+    article p {
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+    
+    /* Skills List */
+    #skills ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    #skills li {
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      padding: 1.2rem;
+      background: rgba(255,255,255,0.8);
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    #skills li i {
+      margin-right: 15px;
+      width: 30px;
+      color: var(--primary);
+      font-size: 1.5rem;
+    }
+    
+    /* Contact Links */
+    #contact ul {
+      list-style: none;
+      padding: 0;
+    }
+    #contact li {
+      margin: 1.5rem 0;
+    }
+    #contact p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    #contact p i {
+      margin-right: 10px;
+      color: var(--primary);
+    }
+    #contact a.linkedin-btn {
+      color: white;
+      background-color: #0077B5;
+      padding: 1rem 2.5rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 4px 0 #005582, 0 5px 15px rgba(0,0,0,0.2);
+      transform: translateY(0);
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    #contact a.linkedin-btn i {
+      margin-right: 12px;
+      font-size: 1.3em;
+    }
+    #contact a.linkedin-btn:hover {
+      background-color: #006097;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 0 #005582, 0 8px 20px rgba(0,0,0,0.2);
+    }
+    #contact a.linkedin-btn:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 0 #005582, 0 3px 10px rgba(0,0,0,0.2);
     }
     /* Footer */
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 3.5rem;
       background: #fff;
+      border-top: 1px solid rgba(0,0,0,0.05);
+
+    }
+    footer p {
+      color: var(--text-dark);
+      font-size: 1.1rem;
+    }
+    footer i {
+      color: #ff6b6b;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+      :root {
+        --content-width: 90%;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      section {
+        padding: 5rem 2rem;
+      }
+      section h2 {
+        font-size: 2.2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header#hero h1 {
+        font-size: 2.6rem;
+      }
+      header#hero img {
+        width: 150px;
+        height: 150px;
+      }
+      .hero-links a {
+        padding: 0.9rem 1.5rem;
+      }
+      nav#navbar .nav-container {
+        padding: 0 1rem;
+      }
+      nav#navbar a {
+        padding: 0.6rem 0.5rem;
+        font-size: 1rem;
+      }
+      nav#navbar li {
+        min-width: 100px;
+      }
+      section h2 {
+        font-size: 2rem;
+      }
+      #skills ul {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+    @media (max-width: 576px) {
+      header#hero h1 {
+        font-size: 2.2rem;
+      }
+      header#hero img {
+        width: 130px;
+        height: 130px;
+      }
+      .hero-links {
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+      }
+      .hero-links a {
+        width: 100%;
+        justify-content: center;
+      }
+      nav#navbar ul {
+        gap: 0.5rem;
+      }
+      nav#navbar li {
+        min-width: 80px;
+      }
+      nav#navbar a i {
+        margin-right: 5px;
+        display: block;
+        width: 100%;
+        margin-bottom: 3px;
+      }
+      nav#navbar a span {
+        display: none;
+      }
+      section {
+        padding: 4rem 1.5rem;
+      }
+      section h2 {
+        font-size: 1.8rem;
+      }
+      article {
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -151,74 +413,116 @@
     <img src="img/profile.jpg" alt="Frank Yu">
     <h1>Frank Yu</h1>
     <div class="hero-links">
-      <a href="https://github.com/Frankyu17" target="_blank">GitHub</a>
-      <a href="img/Frank_Yu_CV.pdf" download>Download CV</a>
+      <a href="https://github.com/Frankyu17" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="img/Frank_Yu_CV.pdf" download><i class="fas fa-file-download"></i> Download CV</a>
     </div>
-    
-
-    <!-- Navigation bar now inside hero section -->
- <nav id="navbar">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
   </header>
 
+   <nav id="navbar">
+    <div class="nav-container">
+      <ul>
+        <li><a href="#about"><i class="fas fa-user"></i> <span>About</span></a></li>
+        <li><a href="#education"><i class="fas fa-graduation-cap"></i> <span>Education</span></a></li>
+        <li><a href="#projects"><i class="fas fa-project-diagram"></i> <span>Projects</span></a></li>
+        <li><a href="#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
+        <li><a href="#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
+        <li><a href="#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+      </ul>
+     </div>
+  </nav>
+
   <section id="about" class="hidden">
-    <h2>About</h2>
-    <p>I am a second-year Computer Science student passionate about building impactful software and learning new technologies.</p>
+     <div class="section-content">
+      <h2><i class="fas fa-user"></i> About</h2>
+      <article>
+        <p>I am a second-year Computer Science student passionate about building impactful software and learning new technologies. My journey in computer science began with a curiosity about how technology shapes our world, and it has grown into a deep commitment to developing solutions that make a difference.</p>
+        <p>When I'm not coding, you can find me exploring new frameworks, contributing to open-source projects, or mentoring fellow students. I believe in continuous learning and pushing the boundaries of what's possible with technology.</p>
+      </article>
+    </div>
   </section>
 
-   <section id="education" class="hidden">
-    <h2>Education</h2>
-    <article>
-      <h3>UCD</h3>
-      <time datetime="2023-01">2023 – 2027 Present</time>
-      <p>Pursuing a BSc in Computer Science. Relevant coursework: Data Structures, Algorithms, Databases.</p>
-    </article>
+
+  <section id="education" class="hidden">
+    <div class="section-content">
+      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+      <article>
+        <h3>University College Dublin</h3>
+        <time datetime="2023-01">2023 – 2027 (Expected)</time>
+        <p>Pursuing a Bachelor of Science in Computer Science with a focus on software engineering and data systems. My coursework provides a strong foundation in both theoretical and practical aspects of computing.</p>
+        <p><strong>Relevant coursework:</strong> Data Structures & Algorithms, Database Systems, Computer Architecture, Software Engineering, Discrete Mathematics, Web Application Development, Operating Systems.</p>
+      </article>
+    </div>
   </section>
 
   <section id="projects" class="hidden">
-    <h2>Projects</h2>
-    <article>
-      <h3>Project Title</h3>
-    </article>
+      <div class="section-content">
+      <h2><i class="fas fa-project-diagram"></i> Projects</h2>
+      <article>
+        <h3>Hexoust Board game</h3>
+        <time>2024</time>
+        <p>team of 3</p>
+        <p><strong>implements</strong> Java Fx, Java</p>
+      </article>
+      <article>
+        <h3>Golf Score Tracker</h3>
+        <time>2025</time>
+        <p>app track golf score</p>
+        <p><strong>implements</strong> java, css</p>
+      </article>
+    </div>
   </section>
 
   <section id="experience" class="hidden">
-    <h2>Experience</h2>
-    <article>
-      <h3>Internship / Role Title</h3>
-    </article>
+     <div class="section-content">
+
+      <h2><i class="fas fa-briefcase"></i> Experience</h2>
+
+      <article>
+        <h3>Software Development Intern</h3>
+        <time datetime="2023-06">Summer</time>
+        <p>asdvsfd.</p>
+        <p><strong>Key contributions:</strong> ssdfvsdfbs</p>
+      </article>
+      <article>
+        <h3>Computer Science </h3>
+        <time datetime="2023-09">2023 - Present</time>
+        <p>such and such ......</p>
+      </article>
+    </div>
   </section>
 
   <section id="skills" class="hidden">
-    <h2>Skills</h2>
-    <ul>
-      <li>Java</li>
-      <li>Python</li>
-      <li>JavaScript / HTML / CSS</li>
-      <li>Git &amp; GitHub</li>
-    </ul>
+     <div class="section-content">
+      <h2><i class="fas fa-code"></i> Skills</h2>
+      <ul>
+        <li><i class="fab fa-java"></i> Java (Proficient)</li>
+        <li><i class="fab fa-python"></i> Python (Advanced)</li>
+        <li><i class="fab fa-js"></i> JavaScript/TypeScript (Advanced)</li>
+        <li><i class="fab fa-html5"></i> HTML5 &amp; CSS3 (Advanced)</li>
+        <li><i class="fab fa-react"></i> React &amp; Vue.js</li>
+        <li><i class="fab fa-node-js"></i> Node.js &amp; Express</li>
+        <li><i class="fas fa-database"></i> SQL &amp; NoSQL Databases</li>
+        <li><i class="fab fa-git-alt"></i> Git &amp; GitHub</li>
+        <li><i class="fas fa-cloud"></i> AWS &amp; Firebase</li>
+        <li><i class="fas fa-mobile-alt"></i> Responsive Design</li>
+      </ul>
+    </div>
   </section>
 
   <section id="contact" class="hidden">
-    <h2>Contact</h2>
-    <p>Email: Frankyu21@gmail.com</p>
-    <ul>
-      <li><a href="https://www.linkedin.com/in/frank-yu-b1633932b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app " 
-        target="_blank">LinkedIn</a>
-      </li>
-    </ul>
+      <div class="section-content">
+      <h2><i class="fas fa-envelope"></i> Contact</h2>
+      <p><i class="fas fa-envelope"></i> Email: Frankyu21@gmail.com</p>
+      <p><i class="fas fa-phone"></i> Phone: (123) 456-7890</p>
+      <p>Feel free to reach out for collaborations, opportunities, or just to chat about technology!</p>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/frank-yu-b1633932b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin-in"></i> Connect on LinkedIn</a></li>
+      </ul>
+    </div>
   </section>
 
   <footer>
-    <p>© 2025 Frank Yu. Built with ❤️.</p>
+    <p>© 2025 Frank Yu. Built with <i class="fas fa-heart"></i> and pure CSS.</p>
   </footer>
 <script>
     // Smooth scrolling for navigation links
@@ -229,20 +533,16 @@
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
           window.scrollTo({
-            top: targetElement.offsetTop,
+            top: targetElement.offsetTop - 70, // Adjusted for fixed navbar
             behavior: 'smooth'
           });
-          // Update URL without jumping
           history.pushState(null, null, targetId);
         }
       });
     });
     // Intersection Observer for scroll animations
     const sections = document.querySelectorAll('section');
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+    
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -250,15 +550,16 @@
           entry.target.classList.remove('hidden');
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.1 });
+
     sections.forEach(section => {
       observer.observe(section);
     });
     // Highlight active nav link while scrolling
     window.addEventListener('scroll', () => {
-      const scrollPosition = window.scrollY;
+      const scrollPosition = window.scrollY + 100; // Adjusted for fixed navbar
       sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
+        const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
         const sectionId = section.getAttribute('id');
         if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
