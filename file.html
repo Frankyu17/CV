@@ -18,7 +18,9 @@
       line-height: 1.6;
       color: var(--text-dark);
       background-color: var(--bg-light);
+      scroll-behavior: smooth;
     }
+    
     /* Hero Section */
     header#hero {
       height: 100vh;
@@ -30,6 +32,7 @@
       color: white;
       text-align: center;
       padding: 2rem;
+      position: relative;
     }
     header#hero img {
       width: 150px;
@@ -41,6 +44,9 @@
     header#hero h1 {
       font-size: 2.5rem;
       margin: 1rem 0;
+    }
+    .hero-links {
+      margin-bottom: 2rem;
     }
     .hero-links a {
       margin: 0 0.5rem;
@@ -54,18 +60,21 @@
     .hero-links a:hover {
       background-color: #d18b1f;
     }
-    /* Navbar */
+    /* Navbar - part of hero section*/ 
     nav#navbar {
-      position: sticky;
-      top: 0;
-      background: #fff;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.9);
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: absolute;
+      bottom: 0;
+      left: 0;
       z-index: 100;
     }
     nav#navbar ul {
       list-style: none;
       display: flex;
       justify-content: center;
+      padding: 0;
     }
     nav#navbar li {
       margin: 0 1rem;
@@ -76,15 +85,46 @@
       color: var(--text-dark);
       text-decoration: none;
       font-weight: 500;
+
+      transition: all 0.3s ease;
+      position: relative;
     }
     nav#navbar a:hover {
       color: var(--primary);
+    } 
+    nav#navbar a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0;
+      left: 0;
+      background-color: var(--primary);
+      transition: width 0.3s ease;
+    }
+    nav#navbar a:hover::after {
+      width: 100%;
+    }
+    nav#navbar a.active {
+      color: var(--primary);
+    }
+    nav#navbar a.active::after {
+      width: 100%;
     }
     /* Sections */
     section {
       padding: 4rem 2rem;
       max-width: 800px;
       margin: 0 auto;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    section.hidden {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     section:nth-of-type(even) {
       background: #fff;
@@ -112,27 +152,29 @@
     <h1>Frank Yu</h1>
     <div class="hero-links">
       <a href="https://github.com/Frankyu17" target="_blank">GitHub</a>
-      <a href="Frank_Yu_CV.pdf" download>Download CV</a>
+      <a href="img/Frank_Yu_CV.pdf" download>Download CV</a>
     </div>
+    
+
+    <!-- Navigation bar now inside hero section -->
+ <nav id="navbar">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <nav id="navbar">
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <section id="about">
+  <section id="about" class="hidden">
     <h2>About</h2>
     <p>I am a second-year Computer Science student passionate about building impactful software and learning new technologies.</p>
   </section>
 
-  <section id="education">
+   <section id="education" class="hidden">
     <h2>Education</h2>
     <article>
       <h3>UCD</h3>
@@ -141,21 +183,21 @@
     </article>
   </section>
 
-  <section id="projects">
+  <section id="projects" class="hidden">
     <h2>Projects</h2>
     <article>
       <h3>Project Title</h3>
     </article>
   </section>
 
-  <section id="experience">
+  <section id="experience" class="hidden">
     <h2>Experience</h2>
     <article>
       <h3>Internship / Role Title</h3>
     </article>
   </section>
 
-  <section id="skills">
+  <section id="skills" class="hidden">
     <h2>Skills</h2>
     <ul>
       <li>Java</li>
@@ -165,16 +207,70 @@
     </ul>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="hidden">
     <h2>Contact</h2>
     <p>Email: Frankyu21@gmail.com</p>
     <ul>
-      <li><a href="https://www.linkedin.com/in/frank-yu-b1633932b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app " target="_blank">LinkedIn</a></li>
+      <li><a href="https://www.linkedin.com/in/frank-yu-b1633932b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app " 
+        target="_blank">LinkedIn</a>
+      </li>
     </ul>
   </section>
 
   <footer>
     <p>© 2025 Frank Yu. Built with ❤️.</p>
   </footer>
+<script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth'
+          });
+          // Update URL without jumping
+          history.pushState(null, null, targetId);
+        }
+      });
+    });
+    // Intersection Observer for scroll animations
+    const sections = document.querySelectorAll('section');
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          entry.target.classList.remove('hidden');
+        }
+      });
+    }, observerOptions);
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+    // Highlight active nav link while scrolling
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          document.querySelectorAll('nav a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
