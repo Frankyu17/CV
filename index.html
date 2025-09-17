@@ -4,764 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Frank Yu – CV</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary: #4A90E2;
-      --secondary: #F5A623;
-      --bg-dark: #121212;
-      --bg-darker: #0a0a0a;
-      --text-light: #e0e0e0;
-      --text-lighter: #ffffff;
-      --heading: #ffffff;
-      --content-width: 1000px;
-      --nav-width: 250px;
-      
-      /* Light theme variables */
-      --bg-light: #f0f4f8;
-      --bg-lighter: #ffffff;
-      --text-dark: #333333;
-      --text-darker: #222222;
-    }
-    
-    * { 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
-    }
-    
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      line-height: 1.6;
-      color: var(--text-light);
-      background-color: var(--bg-dark);
-      display: flex;
-      min-height: 100vh;
-    }
-    
-    body.light-theme {
-      color: var(--text-dark);
-      background-color: var(--bg-light);
-    }
-    body.light-theme .hero-social-icons a {
-      color: var(--icon-color); /* Icon color for light theme */
-    }
-    
-    body.light-theme nav#navbar h1 {
-      color: var(--text-darker); /* Name color for light theme */
-    }
-    
-    body.light-theme section {
-      background-color: var(--bg-light);
-    }
-    
-    body.light-theme section:nth-child(even) {
-      background-color: var(--bg-lighter);
-    }
-    
-    body.light-theme article {
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-    
-    body.light-theme #skills li {
-      background: rgba(255,255,255,0.8);
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-    
-    body.light-theme footer {
-      background: var(--bg-lighter);
-      border-top: 1px solid rgba(0,0,0,0.05);
-    }
-    
-    body.light-theme nav#navbar {
-      background: #f8f9fa;
-      color: var(--text-dark);
-      border-right: 1px solid rgba(0,0,0,0.05);
-    }
-    
-    body.light-theme nav#navbar a {
-      color: var(--text-dark);
-    }
-    
-    body.light-theme nav#navbar li:hover {
-      background-color: rgba(0,0,0,0.05);
-    }
-    
-    body.light-theme header#hero {
-      background: linear-gradient(135deg, rgba(240,244,248,0.9) 0%, rgba(255,255,255,1) 100%);
-    }
-    
-    body.light-theme header#hero h1 {
-      color: var(--text-darker);
-    }
-    
-    body.light-theme header#hero h1 span {
-      color: var(--text-darker);
-    }
-    
   
-    
-    /* Navigation - Left Sidebar */
-    nav#navbar {
-      width: var(--nav-width);
-      background: var(--bg-darker);
-      color: var(--text-light);
-      position: fixed;
-      height: 100vh;
-      padding: 2rem 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      z-index: 1000;
-      border-right: 1px solid rgba(255,255,255,0.05);
-      transition: all 0.3s ease;
-    }
-    
-    .nav-top {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    
-    nav#navbar .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 4px solid var(--primary);
-      object-fit: cover;
-      margin-bottom: 1.5rem;
-      transition: all 0.3s ease;
-    }
-    
-    nav#navbar h1 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      text-align: center;
-      color: var(--heading);
-    }
-    
-    nav#navbar .title {
-      color: var(--primary);
-      font-weight: 300;
-      margin-bottom: 2rem;
-      text-align: center;
-      font-size: 1rem;
-    }
-    
-    nav#navbar ul {
-      list-style: none;
-      width: 100%;
-    }
-    
-    nav#navbar li {
-      position: relative;
-      width: 100%;
-      transition: all 0.3s ease;
-      overflow: hidden;
-    }
-    
-    nav#navbar a {
-      display: flex;
-      align-items: center;
-      padding: 1rem 2rem;
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 400;
-      font-size: 1rem;
-      width: 100%;
-      position: relative;
-      transition: transform 0.3s ease;
-    }
-    
-    nav#navbar li:hover a {
-      transform: translateY(-3px);
-    }
-    
-    /* Updated underline animation - from icon to end of word */
-    nav#navbar a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 35px; /* Start from after the icon */
-      width: calc(100% - 100px);;
-      height: 2px;
-      background-color: var(--primary);
-      transform: scaleX(0); /* Initially hidden */
-      transform-origin: left center;
-      transition: transform 0.3s ease;
-    }
-    
-    nav#navbar li:hover a::after,
-    nav#navbar a.active::after {
-    transform: scaleX(1);
-    }
-    
-    nav#navbar a i {
-      margin-right: 15px;
-      font-size: 1.2em;
-      width: 20px;
-      text-align: center;
-    }
-    
-    nav#navbar a.active {
-    font-weight: 600;
-    color: var(--primary);
-  }
-    
-    nav#navbar a.active::after {
-      transform: scaleX(1);
-    }
-    
-    .theme-toggle {
-      position: fixed;
-      top: 1rem;
-      right: 1rem;
-      background: rgba(255,255,255,0.1);
-      border: none;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: var(--text-light);
-      transition: all 0.3s ease;
-      z-index: 1001;
-    }
-    
-    .theme-toggle:hover {
-      background: rgba(255,255,255,0.2);
-      transform: translateY(-2px);
-    }
-    
-    body.light-theme .theme-toggle {
-      background: rgba(0,0,0,0.05);
-      color: var(--text-dark);
-    }
-    
-    body.light-theme .theme-toggle:hover {
-      background: rgba(0,0,0,0.1);
-    }
-    /* Mobile adjustment */
-@media (max-width: 768px) {
-  .theme-toggle {
-    top: 0.5rem;
-    right: 0.5rem;
-    width: 36px;
-    height: 36px;
-  }
-}
-    /* Main Content Area */
-    main {
-      margin-left: var(--nav-width);
-      flex: 1;
-    }
-    
-    /* Hero Section - Updated */
-    header#hero {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 0 5rem 5rem;
-      background: linear-gradient(135deg, rgba(18,18,18,0.9) 0%, rgba(10,10,10,1) 100%);
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-    
-    header#hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      right: -50%;
-      width: 100%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(74,144,226,0.1) 0%, rgba(74,144,226,0) 70%);
-      z-index: 0;
-    }
-    
-    header#hero h1 {
-      font-size: 4.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-      color: var(--heading);
-      position: relative;
-      z-index: 1;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      line-height: 1.1;
-    }
-    
-    header#hero h1 span {
-      display: block;
-    }
-    
-    header#hero h1 span:nth-child(1) {
-      font-size: 4rem;
-      margin-bottom: 0.5rem;
-      font-weight: 400;
-    }
-    
-    header#hero h1 span:nth-child(3) {
-      font-size: 4rem;
-      font-weight: 400;
-      margin-top: 0.5rem;
-      height: 5.5rem;
-      display: flex;
-      align-items: center;
-    }
-    
-    .typewriter-container {
-      display: inline !important; /* Override block behavior */
-      min-height: 0; /* Remove fixed height */
-      line-height: 1.2; /* Match parent */
-      vertical-align: middle; /* Align properly */
-    }
-    /* Adjust the typewriter itself */
-    .typewriter {
-      display: inline-block;
-      min-width: 1px; /* Prevents collapse */
-      position: relative;
-    }
-    /* Adjust the cursor (|) */
-    .typewriter::after {
-      content: "|";
-      position: relative; /* Instead of absolute */
-      left: 0.25rem; /* Small spacing */
-      animation: blink 0.7s infinite;
-      vertical-align: middle; /* Keeps cursor centered */
-    }
-    
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    
-    .hero-links {
-      margin-top: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-    
-    .hero-links a {
-      color: white;
-      background-color: var(--primary);
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      font-weight: 600;
-      font-size: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-    
-    .hero-links a i {
-      margin-right: 10px;
-      font-size: 1.2em;
-    }
-    
-    .hero-links a:hover {
-      background-color: #3a7bc8;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-    
-    .hero-social-icons {
-      display: flex;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    
-    .hero-social-icons a {
-      color: white;
-      font-size: 1.3rem;
-      transition: all 0.3s ease;
-    }
-    
-    .hero-social-icons a:hover {
-      color: var(--primary);
-      transform: translateY(-2px);
-    }
-    
-    /* Sections */
-    section {
-      padding: 6rem 5rem;
-      width: 100%;
-      margin: 0 auto;
-      background-color: var(--bg-dark);
-      position: relative;
-      transition: all 0.3s ease;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    
-    section:nth-child(even) {
-      background-color: var(--bg-darker);
-    }
-    
-    section .section-content {
-      max-width: var(--content-width);
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    
-    section h2 {
-      color: var(--heading);
-      margin-bottom: 2.5rem;
-      font-size: 2.5rem;
-      font-weight: 700;
-      position: relative;
-      padding-bottom: 1rem;
-      display: flex;
-      align-items: center;
-    }
-    
-    /* Add icons to section titles */
-    section h2 i {
-      margin-right: 15px;
-      color: var(--primary);
-    }
-    
-    body.light-theme section h2 {
-      color: var(--text-darker);
-    }
-    
-    section h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 70px;
-      height: 4px;
-      background-color: var(--primary);
-    }
-    
-    /* Content styling */
-    article {
-      margin-bottom: 3rem;
-      padding: 2rem;
-      background: rgba(30,30,30,0.5);
-      border-radius: 8px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.2);
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    
-    article:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    }
-    
-    article h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
-    }
-    
-    article time {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      color: var(--secondary);
-    }
-    
-    article p {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-    
-    /* Skills List */
-    #skills ul {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-    
-    #skills li {
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      font-size: 1.2rem;
-      padding: 1.2rem;
-      background: rgba(30,30,30,0.5);
-      border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border: 1px solid rgba(255,255,255,0.05);
-      transition: transform 0.3s ease;
-    }
-    
-    #skills li:hover {
-      transform: translateY(-5px);
-    }
-    
-    #skills li i {
-      margin-right: 15px;
-      width: 30px;
-      color: var(--primary);
-      font-size: 1.5rem;
-    }
-    
-    /* Contact Links */
-    #contact ul {
-      list-style: none;
-      padding: 0;
-    }
-    
-    #contact li {
-      margin: 1.5rem 0;
-    }
-    
-    #contact p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-    
-    #contact p i {
-      margin-right: 10px;
-      color: var(--primary);
-    }
-    
-    #contact a.linkedin-btn {
-      color: white;
-      background-color: #0077B5;
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      display: inline-flex;
-      align-items: center;
-      font-weight: 600;
-      font-size: 1.2rem;
-    }
-    
-    #contact a.linkedin-btn i {
-      margin-right: 12px;
-      font-size: 1.3em;
-    }
-    
-    #contact a.linkedin-btn:hover {
-      background-color: #006097;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-    
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 3.5rem;
-      background: var(--bg-darker);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      transition: all 0.3s ease;
-    }
-    
-    footer p {
-      color: var(--text-light);
-      font-size: 1.1rem;
-    }
-    
-    footer i {
-      color: #ff6b6b;
-    }
-    
-    /* ===== Responsive Design ===== */
-@media (max-width: 1200px) {
-  :root {
-    --content-width: 90%;
-  }
-}
-
-@media (max-width: 992px) {
-  section {
-    padding: 5rem 3rem;
-  }
-  
-  section h2 {
-    font-size: 2.2rem;
-  }
-  
-  header#hero {
-    padding: 0 3rem;
-  }
-  
-  header#hero h1 {
-    font-size: 3.8rem;
-  }
-  
-  header#hero h1 span:nth-child(1) {
-    font-size: 1.8rem;
-  }
-  
-  header#hero h1 span:nth-child(3) {
-    height: 4.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  body {
-    flex-direction: column;
-    min-height: auto;
-    overflow-x: hidden;
-  }
-  
-  /* Navbar becomes top-aligned */
-  nav#navbar {
-    top: 0;
-    width: 100%;
-    height: auto;
-    position: sticky;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Profile section (scrolls normally) */
-  .nav-top {
-    display: none;
-  }
-  
-  /* Navigation links (sticky toolbar) */
-  .nav-links {
-    order: 1; /* Forces to top */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: var(--bg-darker);
-    width: 100%;
-    padding: 0.5rem 1rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    display: flex;
-    justify-content: center;
-    transition: background 0.3s ease;
-  }
-  
-  /*link list */
-  .nav-links ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  /* Light theme specific styles */
-  body.light-theme .nav-links {
-    background: #f8f9fa;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
-
-  body.light-theme .nav-links a {
-    color: var(--text-dark);
-  }
-
-  body.light-theme .nav-links a:hover {
-    color: var(--primary);
-  }
-  
-  /* Adjust profile image */
-  nav#navbar .profile-img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Main content adjustments */
-  main {
-    margin-left: 0;
-  }
-  
-  header#hero {
-    padding: 6rem 2rem;
-    min-height: 100vh;
-  }
-  
-  header#hero h1 {
-    font-size: 3rem;
-  }
-  
-  header#hero h1 span:nth-child(1) {
-    font-size: 1.5rem;
-  }
-  
-  header#hero h1 span:nth-child(3) {
-    height: 4rem;
-  }
-  
-  .hero-links {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-  
-  section {
-    padding: 4rem 2rem;
-  }
-  
-  section h2 {
-    font-size: 2rem;
-  }
-  
-  .theme-toggle {
-    top: 0.5rem;
-    right: 0.5rem;
-  }
-}
-
-@media (max-width: 576px) {
-  header#hero {
-    padding: 6rem 1.5rem;
-  }
-  
-  header#hero h1 {
-    font-size: 2.5rem;
-  }
-  
-  header#hero h1 span:nth-child(1) {
-    font-size: 1.3rem;
-  }
-  
-  header#hero h1 span:nth-child(3) {
-    height: 3.5rem;
-  }
-  
-  /* Hide nav link text (show only icons) */
-  nav#navbar a span {
-    display: none;
-  }
-  
-  nav#navbar a i {
-    margin-right: 0;
-    font-size: 1.4rem;
-  }
-  
-  /* Stack skills vertically */
-  #skills ul {
-    grid-template-columns: 1fr;
-  }
-}
-  </style>
 </head>
 <body>
+
   <!-- Theme Toggle Button -->
   <button class="theme-toggle" aria-label="Toggle theme">
     <i class="fas fa-moon"></i>
@@ -809,8 +58,8 @@
       <div class="section-content">
         <h2><i class="fas fa-user"></i>About</h2>
         <article>
-          <p>I am a second-year Computer Science student passionate about building impactful software and learning new technologies. My journey in computer science began with a curiosity about how technology shapes our world, and it has grown into a deep commitment to developing solutions that make a difference.</p>
-          <p>When I'm not coding, you can find me exploring new frameworks, contributing to open-source projects, or mentoring fellow students. I believe in continuous learning and pushing the boundaries of what's possible with technology.</p>
+          <p>I am a third-year Computer Science student passionate about building impactful software and learning new technologies. My journey in computer science began with a curiosity about how technology shapes our world, and it has grown into a deep commitment to developing solutions that make a difference.</p>
+          <p>In my spare time when I'm not coding, you can probably find me in the gym or playing football. I'm currently seeking internship opportunities to apply my knowledge and contribute to meaningful projects.</p>
         </article>
       </div>
     </section>
@@ -824,6 +73,13 @@
           <time datetime="2023-01">2023 – 2027 (Expected)</time>
           <p>Pursuing a Bachelor of Science in Computer Science with a focus on software engineering and data systems. My coursework provides a strong foundation in both theoretical and practical aspects of computing.</p>
           <p><strong>Relevant coursework:</strong> Data Structures & Algorithms, Database Systems, Computer Architecture, Software Engineering, Discrete Mathematics, Web Application Development, Operating Systems.</p>
+        </article>
+        <article class="education-item">
+          <div class="education-header">
+          <h3>Leaving Certificate</h3>
+          <time datetime="2023">2023</time>
+          </div>
+          <p>Achieved <strong>566 points</strong></p>
         </article>
       </div>
     </section>
@@ -847,21 +103,73 @@
       </div>
     </section>
 
-    <!-- Experience Section -->
+        <!-- Experience Section -->
     <section id="experience">
       <div class="section-content">
         <h2><i class="fas fa-briefcase"></i>Experience</h2>
-        <article>
-          <h3>Software Development Intern</h3>
-          <time datetime="2023-06">Summer</time>
-          <p>Worked on developing and maintaining software applications.</p>
-          <p><strong>Key contributions:</strong> Implemented new features, fixed bugs, and collaborated with team members.</p>
-        </article>
-        <article>
-          <h3>Computer Science Tutor</h3>
-          <time datetime="2023-09">2023 - Present</time>
-          <p>Helping students understand fundamental computer science concepts and programming techniques.</p>
-        </article>
+        
+        <div class="timeline-container">
+          <div class="timeline">
+            <ul>
+              <!-- UCD Village Centra -->
+              <li>
+                <div class="timeline-content">
+                  <h3 class="date">2023 – 2025</h3>
+                  <h1>UCD Village Centra, Dublin 4, Co. Dublin</h1>
+                  <p><em>Deli Assistant & Pizza Chef</em></p>
+                  <p>
+                    • Making pizzas to order <br>
+                    • Customer interaction <br>
+                    • Stock control
+                  </p>
+                </div>
+              </li>
+
+              <!-- Chatime -->
+              <li>
+                <div class="timeline-content">
+                  <h3 class="date">2022 – 2023</h3>
+                  <h1>Chatime, Drogheda, Co. Louth</h1>
+                  <p><em>Bubble Tea Server</em></p>
+                  <p>
+                    • Preparing and serving bubble tea <br>
+                    • Engaging with customers to take orders <br>
+                    • Managing inventory and restocking supplies <br>
+                    • Maintaining shop cleanliness and appearance
+                  </p>
+                </div>
+              </li>
+
+              <!-- FoneConnection -->
+              <li>
+                <div class="timeline-content">
+                  <h3 class="date">2021 – 2022</h3>
+                  <h1>FoneConnection, Dundalk, Co. Louth</h1>
+                  <p><em>Repair Technician</em></p>
+                  <p>
+                    • Performing mobile phone screen repairs <br>
+                    • Organizing and stocking display shelves <br>
+                    • Maintaining a tidy work environment
+                  </p>
+                </div>
+              </li>
+
+              <!-- GreatWall Apache -->
+              <li>
+                <div class="timeline-content">
+                  <h3 class="date">2017 – 2020</h3>
+                  <h1>GreatWall Apache, Clogherhead, Co. Louth</h1>
+                  <p><em>Pizza Chef</em></p>
+                  <p>
+                    • Crafting pizzas to order <br>
+                    • Interacting with customers for dine-in service <br>
+                    • Monitoring and controlling stock levels
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -902,174 +210,6 @@
     </footer>
   </main>
 
-  <script>
-    // Theme toggle functionality
-    const themeToggle = document.querySelector('.theme-toggle');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    // Set initial theme
-    if (prefersDarkScheme.matches) {
-      document.body.classList.remove('light-theme');
-      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    } else {
-      document.body.classList.add('light-theme');
-      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    }
-    
-    // Toggle theme
-    themeToggle.addEventListener('click', () => {
-      if (document.body.classList.contains('light-theme')) {
-        document.body.classList.remove('light-theme');
-        themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        localStorage.setItem('theme', 'dark');
-      } else {
-        document.body.classList.add('light-theme');
-        themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-        localStorage.setItem('theme', 'light');
-      }
-    });
-    
-    // Check saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-      document.body.classList.add('light-theme');
-      themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    } else if (savedTheme === 'dark') {
-      document.body.classList.remove('light-theme');
-      themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    }
-    
-    // Improved Contact Me button with immediate response
-    document.getElementById('contact-btn').addEventListener('click', function(e) {
-      e.preventDefault();
-      const contactSection = document.getElementById('contact');
-      
-      // Scroll immediately with smooth behavior
-      contactSection.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-      
-      // Update active nav item
-      document.querySelectorAll('nav a').forEach(link => {
-        link.classList.remove('active');
-      });
-      document.querySelector('nav a[href="#contact"]').classList.add('active');
-      
-      // Update URL without page reload
-      history.pushState(null, null, '#contact');
-    });
-    
-    // Smooth navigation for other links
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        if (this.getAttribute('href').startsWith('#')) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          
-          if (targetElement) {
-            // Update active state
-            document.querySelectorAll('nav a').forEach(link => {
-              link.classList.remove('active');
-            });
-            this.classList.add('active');
-            
-            // Smooth scroll
-            targetElement.scrollIntoView({ 
-              behavior: 'smooth',
-              block: 'start'
-            });
-            
-            // Update URL
-            history.pushState(null, null, targetId);
-          }
-        }
-      });
-    });
-    
-    // Highlight active nav on scroll
-    window.addEventListener('scroll', () => {
-      const scrollPosition = window.scrollY;
-      
-      document.querySelectorAll('section').forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
-        
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          document.querySelectorAll('nav a').forEach(link => {
-            link.classList.toggle('active', link.getAttribute('href') === `#${sectionId}`);
-          });
-        }
-      });
-    });
-    
-    // Fade-in animation
-    document.addEventListener('DOMContentLoaded', () => {
-      const firstVisit = localStorage.getItem('firstVisit') === null;
-      
-      if (firstVisit) {
-        localStorage.setItem('firstVisit', 'false');
-        
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.1 });
-        
-        document.querySelectorAll('section').forEach(section => {
-          observer.observe(section);
-        });
-        
-        document.querySelector('header#hero').style.opacity = '1';
-      } else {
-        document.querySelectorAll('section').forEach(section => {
-          section.classList.add('visible');
-        });
-        document.querySelector('header#hero').style.opacity = '1';
-      }
-    });
-    
-    // Typewriter animation for job titles
-    document.addEventListener('DOMContentLoaded', () => {
-      const typewriterElement = document.getElementById('typewriter');
-      const titles = ['SOFTWARE ENGINEER', 'COMPUTER SCIENTIST', 'WEB DEVELOPER'];
-      let currentTitleIndex = 0;
-      let charIndex = 0;
-      let isDeleting = false;
-      let typingSpeed = 150; // milliseconds
-      
-      function typeWriter() {
-        const currentTitle = titles[currentTitleIndex];
-        
-        if (isDeleting) {
-          typewriterElement.textContent = currentTitle.substring(0, charIndex - 1);
-          charIndex--;
-          typingSpeed = 50;
-        } else {
-          typewriterElement.textContent = currentTitle.substring(0, charIndex + 1);
-          charIndex++;
-          typingSpeed = charIndex % 3 === 0 ? 100 : 150;
-        }
-        
-        if (!isDeleting && charIndex === currentTitle.length) {
-          isDeleting = true;
-          typingSpeed = 2000;
-        } else if (isDeleting && charIndex === 0) {
-          isDeleting = false;
-          currentTitleIndex = (currentTitleIndex + 1) % titles.length;
-          typingSpeed = 500;
-        }
-        
-        setTimeout(typeWriter, typingSpeed);
-      }
-      
-      setTimeout(typeWriter, 1000);
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html> 
