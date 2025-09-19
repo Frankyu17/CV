@@ -166,3 +166,58 @@ document.addEventListener('DOMContentLoaded', () => {
   
   setTimeout(typeWriter, 1000);
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+            // Get all portfolio items
+            const portfolioItems = document.querySelectorAll('.portfolio-item');
+            
+            // Get all modals
+            const modals = document.querySelectorAll('.modal');
+            
+            // Get all close buttons
+            const closeButtons = document.querySelectorAll('.close-modal');
+            
+            // Add click event to each portfolio item
+            portfolioItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const projectId = this.getAttribute('data-project');
+                    const modal = document.getElementById(`modal-${projectId}`);
+                    
+                    if (modal) {
+                        modal.classList.add('active');
+                    }
+                });
+            });
+            
+            // Add click event to close buttons
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    modal.classList.remove('active');
+                    document.body.style.overflow = ''; // Enable scrolling
+                });
+            });
+            
+            // Close modal when clicking outside the content
+            modals.forEach(modal => {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === this) {
+                        this.classList.remove('active');
+                        document.body.style.overflow = ''; // Enable scrolling
+                    }
+                });
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    modals.forEach(modal => {
+                        if (modal.classList.contains('active')) {
+                            modal.classList.remove('active');
+                            document.body.style.overflow = ''; // Enable scrolling
+                        }
+                    });
+                }
+            });
+        });

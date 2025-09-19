@@ -136,21 +136,75 @@
 
     <!-- Projects Section -->
     <section id="projects">
-      <div class="section-content">
-        <h2><i class="fas fa-project-diagram"></i>Projects</h2>
-        <article>
-          <h3>Hexoust Board Game</h3>
-          <time>2024</time>
-          <p>Team of 3</p>
-          <p><strong>Technologies:</strong> Java FX, Java</p>
-        </article>
-        <article>
-          <h3>Golf Score Tracker</h3>
-          <time>2025</time>
-          <p>App to track golf scores</p>
-          <p><strong>Technologies:</strong> Java, CSS</p>
-        </article>
-      </div>
+        <div class="section-content">
+            <h2><i class="fas fa-project-diagram"></i>Projects</h2>
+            <div class="container">
+                <div class="portfolio-grid">
+                    <!-- Project 1 -->
+                    <div class="portfolio-item" data-project="1">
+                        <video class="portfolio-img" controls muted loop playsinline>
+                            <source src="./vid/HexOust.mp4" type="video/mp4">
+                            <source src="./vid/HexOust.webm" type="video/webm">
+                            <img src="./img/HexOutPic.png" alt="E-Commerce Website Preview">
+                        </video>
+                        <div class="portfolio-overlay">
+                            <h3 class="portfolio-title">HexOust Game</h3>
+                            <p class="portfolio-desc">Two player strategic Game</p>
+                            <span class="portfolio-category">GAME DESIGN</span>
+                            <span class="view-project">View Project</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Modals -->
+            <!-- Modal 1 -->
+            <div class="modal" id="modal-1">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">HexOust Game</h2>
+                        <p class="modal-category">Game Design</p>
+                        <span class="close-modal">&times;</span>
+                    </div>
+                    <div class="modal-body">
+                        <video controls muted loop playsinline class="modal-video">
+                            <source src="./vid/HexOust.mp4" type="video/mp4">
+                            <source src="./vid/HexOust.webm" type="video/webm">
+                            <img src="./img/HexOutPic.png" alt="HexOust Game" class="portfolio-img">
+                        </video>
+                        <p class="modal-description">
+                            HexOust is a two-player strategic board game developed in Java. 
+                            Players (Yellow vs. Red) take turns placing tokens on a hexagonal grid. 
+                            The core mechanic requires players to capture smaller adjacent opponent groups with their own larger group of connected tokens. The game enforces strict rules, provides visual feedback, and includes features like an undo function and win tracking.
+                        </p>
+                        <div class="modal-details">
+                            <div class="detail-item">
+                                <h4 class="detail-title">Language</h4>
+                                <p>Java</p>
+                            </div>
+                            <div class="detail-item">
+                                <h4 class="detail-title">GUI Framework</h4>
+                                <p>JavaFX</p>
+                            </div>
+                        </div>
+                        <p class="modal-description">
+                            This was a group project developed over five Agile sprints. We used Gantt charts for sprint planning, tracking objectives like core logic and final polishing. 
+                            I was primarily responsible for the core game logic and user interface interactivity.
+                        </p>  
+                        <p>My main contributions included:</p>
+                        <ul class="contribution-list">
+                            <li>Designing and implementing the complex <span class="highlight">capture logic and game rules</span> that form the core gameplay mechanics</li>
+                            <li>Programming the <span class="highlight">algorithm to find connected token groups</span> on the hexagonal grid, enabling strategic gameplay</li>
+                            <li>Developing the comprehensive <span class="highlight">validation system</span> that accepts or rejects moves based on game rules</li>
+                            <li>Enhancing UI/UX by implementing <span class="highlight">visual feedback systems</span>, including hexagon highlighting on hover</li>
+                        </ul> 
+                    </div>
+                    <div class="modal-footer">
+                        <a href="https://github.com/anneliesevone/fluffyKittenGroup28.git" class="modal-link"><i class="fab fa-github"></i> View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
         <!-- Experience Section -->
@@ -222,71 +276,69 @@
         </div>
       </div>
     </section>
-<section id="skills">
-  <div class="section-content">
-    <h2><i class="fas fa-code"></i> Skills</h2>
-    
-    <article>
-      <h3>Programming Languages</h3>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <i class="fab fa-python"></i>
-          <span>Python</span>
+  <section id="skills">
+    <div class="section-content">
+      <h2><i class="fas fa-code"></i> Skills</h2>
+      
+      <article>
+        <h3>Programming Languages</h3>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <i class="fab fa-python"></i>
+            <span>Python</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-java"></i>
+            <span>Java</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-c"></i>
+            <span>C</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-code"></i>
+            <span>Scala</span>
+          </div>
         </div>
-        <div class="skill-item">
-          <i class="fab fa-java"></i>
-          <span>Java</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-c"></i>
-          <span>C</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-code"></i>
-          <span>Scala</span>
-        </div>
-      </div>
-    </article>
+      </article>
 
-    <article>
-      <h3>Web Development</h3>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <i class="fab fa-html5"></i>
-          <span>HTML5</span>
+      <article>
+        <h3>Web Development</h3>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <i class="fab fa-html5"></i>
+            <span>HTML5</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-css3-alt"></i>
+            <span>CSS3</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-js"></i>
+            <span>JavaScript</span>
+          </div>
         </div>
-        <div class="skill-item">
-          <i class="fab fa-css3-alt"></i>
-          <span>CSS3</span>
-        </div>
-        <div class="skill-item">
-          <i class="fab fa-js"></i>
-          <span>JavaScript</span>
-        </div>
-        <!-- Add more web skills -->
-      </div>
-    </article>
+      </article>
 
-    <article>
-      <h3>Tools & Technologies</h3>
-      <div class="skills-grid">
-        <div class="skill-item">
-          <i class="fab fa-github"></i>
-          <span>GitHub</span>
+      <article>
+        <h3>Tools & Technologies</h3>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-database"></i>
+            <span>MySQL</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-file-alt"></i>
+            <span>LaTeX</span>
+          </div>
         </div>
-        <div class="skill-item">
-          <i class="fas fa-database"></i>
-          <span>MySQL</span>
-        </div>
-        <div class="skill-item">
-          <i class="fas fa-file-alt"></i>
-          <span>LaTeX</span>
-        </div>
-        <!-- Add more tools -->
-      </div>
-    </article>
-  </div>
-</section>
+      </article>
+    </div>
+  </section>
     <!-- Contact Section -->
     <section id="contact">
       <div class="section-content">
