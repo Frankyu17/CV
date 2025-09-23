@@ -1536,14 +1536,26 @@ body {
     overflow-y: auto;
 }
 
+/* Modal image styling - Improved */
+.modal-image-container {
+    margin: 1.5rem 0;
+    text-align: center;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #f8f9fa;
+    padding: 10px;
+}
+
 .modal-image {
     width: 100%;
-    border-radius: 25px;
-    margin-bottom: 20px;
-    /* NEW: Constrain image height */
-    max-height: 300px;
+    height: 100%; 
     object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
+
+
 
 .modal-description {
     margin-bottom: 20px;
