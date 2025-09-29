@@ -7,37 +7,33 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,100&family=Raleway:wght@100;200;300&family=Source+Sans+3:wght@200;300&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <!-- Theme Toggle Button -->
-  <button class="theme-toggle" aria-label="Toggle theme">
-    <i class="fas fa-moon"></i>
-  </button>
-
-  <!-- Left Side Navigation -->
-  <nav id="navbar">
-    <div class="nav-top">
-      <img src="./img/profileImg.png" alt="Frank Yu" class="profile-img">
-      <h1>Frank Yu</h1>
-      <div class="title">Software Engineer</div>
-    </div>
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
       <ul class="nav-links">
-        <li><a href="#about" class="active"><i class="fas fa-user"></i> <span>About</span></a></li>
-        <li><a href="#education"><i class="fas fa-graduation-cap"></i> <span>Education</span></a></li>
-        <li><a href="#projects"><i class="fas fa-project-diagram"></i> <span>Projects</span></a></li>
-        <li><a href="#experience"><i class="fas fa-briefcase"></i> <span>Experience</span></a></li>
-        <li><a href="#skills"><i class="fas fa-code"></i> <span>Skills</span></a></li>
-        <li><a href="#contact"><i class="fas fa-envelope"></i> <span>Contact</span></a></li>
+        <li><a href="#section2Text"><i class="fas fa-user"></i> <span>ABOUT</span></a></li>
+        <li><a href="#education"><i class="fas fa-graduation-cap"></i> <span>EDUCATION</span></a></li>
+        <li><a href="#projects"><i class="fas fa-project-diagram"></i> <span>PROJECTS</span></a></li>
+        <li><a href="#experience"><i class="fas fa-briefcase"></i> <span>EXPERIENCE</span></a></li>
+        <li><a href="#skills"><i class="fas fa-code"></i> <span>SKILLS</span></a></li>
+        <li><a href="#contact"><i class="fas fa-envelope"></i> <span>CONTACT</span></a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Main Content -->
   <main>
-    <!-- Hero Section - Updated -->
-    <header id="hero">
+    <div class="background"></div>
+<div class="overlay" id="overlay"></div>
+
+<div class="section section1"></div>
+
+<div class="section section2" id="section2">
+  <div class="scroll-text" id="scrollText">
+        <header id="hero">
       <h1>
         <span>HI,</span>
         <span>I'M FRANK,</span>
@@ -52,17 +48,25 @@
         <a href="https://www.linkedin.com/in/frank-yu-b1633932b" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       </div>
     </header>
+  </div>
 
-    <!-- About Section -->
-    <section id="about">
-      <div class="section-content">
-        <h2><i class="fas fa-user"></i>About</h2>
-        <article>
-          <p>I am a third-year Computer Science student passionate about building impactful software and learning new technologies. My journey in computer science began with a curiosity about how technology shapes our world, and it has grown into a deep commitment to developing solutions that make a difference.</p>
-          <p>In my spare time when I'm not coding, you can probably find me in the gym or playing football. I'm currently seeking internship opportunities to apply my knowledge and contribute to meaningful projects.</p>
-        </article>
-      </div>
-    </section>
+  
+ <div id="section2Text" class="about-section">
+  <div class="about-container">
+   
+
+    <!-- Text on the right -->
+    <div class="about-content">
+      <h2>
+        <img src="img/profileImg.png" alt="Frank" class="about-title-photo">
+        About Me
+      </h2>
+      <p>I am a third-year Computer Science student in at University College Dublin (UCD), Ireland. I am passionate about building impactful software and learning new technologies. </p>
+      <p>In my spare time when I'm not coding, you can probably find me in the gym or playing football. I'm currently seeking internship opportunities to apply my knowledge and contribute to meaningful projects.</p>
+    </div>
+  </div>
+</div>
+</div>
 
     <!-- Education Section -->
     <section id="education">

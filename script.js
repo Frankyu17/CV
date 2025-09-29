@@ -1,39 +1,22 @@
+//nav
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const aboutSection = document.getElementById('about');
+        
+    
+        const navbar = document.getElementById('navbar');
 
-// Theme toggle functionality
-const themeToggle = document.querySelector('.theme-toggle');
-const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-// Set initial theme
-if (prefersDarkScheme.matches) {
-  document.body.classList.remove('light-theme');
-  themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-} else {
-  document.body.classList.add('light-theme');
-  themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-}
-
-// Toggle theme
-themeToggle.addEventListener('click', () => {
-  if (document.body.classList.contains('light-theme')) {
-    document.body.classList.remove('light-theme');
-    themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-    localStorage.setItem('theme', 'dark');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) { // show navbar after scrolling 50px
+    navbar.classList.add('visible');
   } else {
-    document.body.classList.add('light-theme');
-    themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-    localStorage.setItem('theme', 'light');
+    navbar.classList.remove('visible');
   }
 });
 
-// Check saved theme
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'light') {
-  document.body.classList.add('light-theme');
-  themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-} else if (savedTheme === 'dark') {
-  document.body.classList.remove('light-theme');
-  themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-}
+       
+    });
+
 
 // Improved Contact Me button with immediate response
 document.getElementById('contact-btn').addEventListener('click', function(e) {
@@ -221,3 +204,45 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+
+        
+
+
+        const scrollText = document.getElementById('scrollText');
+  const overlay = document.getElementById('overlay');
+  const section2 = document.getElementById('section2');
+  const section2Text = document.getElementById('section2Text');
+
+  const section2Top = section2.offsetTop;
+  const section2Height = section2.offsetHeight;
+  const section2TextTop = section2Text.offsetTop;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    // Gradually darken background
+    const maxScroll = section2Top + section2Height;
+    const darkOpacity = Math.min(scrollY / maxScroll, 1) * 1;
+    overlay.style.background = `rgba(0,0,0,${darkOpacity})`;
+
+    const textMiddle = scrollText.offsetHeight / 2;
+    const paragraphMiddle = section2Text.offsetTop + section2.offsetTop + section2Text.offsetHeight / 2;
+
+    if (scrollY + window.innerHeight / 2 < paragraphMiddle) {
+      // Fixed before reaching paragraph
+      scrollText.style.position = 'fixed';
+      scrollText.style.top = '50%';
+      scrollText.style.transform = 'translateY(-50%)';
+    } else if (scrollY + window.innerHeight / 2 >= paragraphMiddle) {
+      // Stick to paragraph, scroll with Section 2
+      scrollText.style.position = 'absolute';
+      scrollText.style.top = `${paragraphMiddle - section2Top - textMiddle}px`;
+      scrollText.style.transform = 'translateY(0)';
+    }
+    // No bottom clamping: text naturally scrolls out with Section 2
+  });
+
+
+
+
+  
