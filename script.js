@@ -246,7 +246,7 @@ window.addEventListener('scroll', () => {
 //CONTACT FROM//
 
 // Initialize EmailJS
-emailjs.init("B8s5EoRC_Ai-qxJws"); // replace with your public key
+emailjs.init("B8s5EoRC_Ai-qxJws"); // public key
 
 const form = document.getElementById("contactForm");
 const message = document.getElementById("message");
@@ -270,3 +270,18 @@ form.addEventListener("submit", function(event) {
       alert("Oops... something went wrong. " + JSON.stringify(err));
     });
 });
+
+
+
+// Only apply on mobile
+if (window.innerWidth <= 768) {
+  const scrollText = document.getElementById('scrollText');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {  // change 50 to whatever offset you want
+      scrollText.classList.add('faded');
+    } else {
+      scrollText.classList.remove('faded');
+    }
+  });
+}

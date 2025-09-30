@@ -20,6 +20,7 @@
   margin: 0; 
   padding: 0; 
   box-sizing: border-box; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 html {
@@ -263,24 +264,43 @@ main {
 }
 
 /* Mobile */
+/* About section fills screen on mobile */
 @media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    text-align: center;
+  
+  #section2Text {
+    max-width: 100%;
+    margin: 0;
+    padding: 2rem 1rem;
   }
 
-  .about-photo {
-    padding: 1.5rem 0;
+  .about-container {
+    padding: 2rem 1.5rem;
+    border-radius: 20px; /* slightly softer on small screens */
+  }
+
+  .about-title-photo {
+    width: 120px;  /* smaller image */
+    height: 120px;
+    margin-bottom: 1rem;
   }
 
   .about-content {
-    padding: 1rem 2rem;
+    padding: 1rem;
+    text-align: center;
   }
 
   .about-content h2 {
+    font-size: 1.6rem; /* smaller heading */
     justify-content: center;
   }
+
+  .about-content p {
+    font-size: 0.95rem; /* smaller body text */
+    line-height: 1.5;
+  }
 }
+
+
 
 
 /* Hero Section */
@@ -429,6 +449,14 @@ header#hero h1 span:nth-child(3) {
 .hero-social-icons a:hover {
   color: var(--primary);
   transform: translateY(-2px);
+}
+
+/* Mobile only fade effect */
+@media (max-width: 768px) {
+  .scroll-text.faded {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
 }
 
 /* Sections */
@@ -1239,19 +1267,6 @@ footer i {
 }
 
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-    background-color: #1a1a1a;
-    color: #fff;
-    line-height: 1.6;
-}
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -1624,8 +1639,8 @@ border-color: var(--primary);
 
 
     .contact-section {
-      /* 🔹 Increased side padding for bigger margins */
-      padding: 5rem 15rem; /* was 50px 80px */
+      /* Increased side padding for bigger margins */
+      padding: 5rem 15rem; 
       background: #111;
     }
 
@@ -1639,7 +1654,7 @@ border-color: var(--primary);
       display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* left (cards), right (form) */
       gap: 50px;
-      align-items: stretch; /* 🔹 Equal height for form and grid */
+      align-items: stretch; /* Equal height for form and grid */
     }
 
     /* CONTACT INFO GRID */
